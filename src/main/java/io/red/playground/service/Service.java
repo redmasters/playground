@@ -4,6 +4,8 @@ package io.red.playground.service;
 import io.red.playground.model.Senha;
 import io.red.playground.repositories.SenhaRepository;
 
+import java.util.List;
+
 @org.springframework.stereotype.Service
 public class Service {
 
@@ -13,13 +15,14 @@ public class Service {
         this.repository = repository;
     }
 
-    public Senha gerarSenha(){
+    public Senha gerarSenha() {
         Senha novaSenha = new Senha();
-        Long senha = 0L;
-        senha++;
-
-        novaSenha.setSenha(senha);
+        final var ultimaSenha = repository.findMax();
         repository.save(novaSenha);
         return novaSenha;
+    }
+
+    public List<Senha> recuperarTodas() {
+        return repository.findAll();
     }
 }

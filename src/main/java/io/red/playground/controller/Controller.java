@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/v1/play")
 public class Controller {
@@ -19,6 +21,11 @@ public class Controller {
     @GetMapping
     public Senha gerarSenha(){
         return service.gerarSenha();
+    }
+
+    @GetMapping("/senhas")
+    public List<Senha> recuperarSenhas(){
+        return service.recuperarTodas();
     }
 
 }

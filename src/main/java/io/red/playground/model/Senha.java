@@ -15,13 +15,20 @@ public class Senha {
     private Long id;
 
     @Column(name = "senha")
-    private Long senha;
+    private int senha;
 
-    public Long getSenha() {
+    public Senha() {
+    }
+
+    public Senha(int senha) {
+        this.senha = senha + 1;
+    }
+
+    public int getSenha() {
         return senha;
     }
 
-    public void setSenha(Long senha) {
+    public void setSenha(int senha) {
         this.senha = senha;
     }
 
