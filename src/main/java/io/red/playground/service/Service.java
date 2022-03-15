@@ -18,6 +18,7 @@ public class Service {
     public Senha gerarSenha() {
         Senha novaSenha = new Senha();
         final var ultimaSenha = repository.findMax();
+        System.out.println(ultimaSenha);
         repository.save(novaSenha);
         return novaSenha;
     }

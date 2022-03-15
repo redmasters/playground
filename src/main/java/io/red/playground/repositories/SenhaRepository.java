@@ -8,8 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SenhaRepository extends JpaRepository<Senha, Long> {
 
-    @Query(value = "SELECT * " + "FROM TBL_SENHAS AS TS " +
-        "WHERE SENHA = (SELECT MAX FROM TS)", nativeQuery = true)
+    @Query()
     Senha findMax();
 
 }
