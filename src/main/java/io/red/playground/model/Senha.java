@@ -5,38 +5,44 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity(name = "tbl_senha")
 public class Senha {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_senha")
-    private Long id;
+    private UUID id;
 
     @Column(name = "senha")
-    private int senha;
+    private Long senha;
 
-    public Senha() {
+    @Column(name = "senha_passwd", unique = true)
+    private String passwd;
+
+    public String getPasswd() {
+        return passwd;
     }
 
-    public Senha(int senha) {
-        this.senha = senha + 1;
+    public void setPasswd(String passwd) {
+        this.passwd = passwd;
     }
 
-    public int getSenha() {
+    public Long getSenha() {
         return senha;
     }
 
-    public void setSenha(int senha) {
+    public void setSenha(Long senha) {
         this.senha = senha;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 }
