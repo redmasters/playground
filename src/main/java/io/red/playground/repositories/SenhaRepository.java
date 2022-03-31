@@ -8,7 +8,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SenhaRepository extends JpaRepository<Senha, Long> {
 
-    @Query()
-    Senha findMax();
-
 }
